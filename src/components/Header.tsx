@@ -14,6 +14,9 @@ function Header() {
     const url = `/${linkName.toLowerCase().replace(/\s+/g, "-")}`;
     router.replace(url);
   }
+  function handleLogout() {
+    console.log("logged out");
+  }
   //endregion
   return (
     <div className="flex gap-10 justify-between items-center px-10 py-7">
@@ -31,8 +34,8 @@ function Header() {
             <button
               onClick={() => handleNavigationButtonClick(linkName)}
               key={linkName}
-              className={`rounded-full px-6 py-3 shadow-sm w-32
-             ${isActive ? "bg-gradient-to-r from-black to-button_blue text-white" : "bg-white"}`}
+              className={`rounded-full px-6 py-3 shadow-sm w-32 duration-300
+             ${isActive ? "bg-gradient-to-r from-black to-button_blue text-white" : "bg-white hover:bg-gray-100"}`}
             >
               {linkName}
             </button>
@@ -40,7 +43,12 @@ function Header() {
         })}
       </div>
       {/*Profile button*/}
-      <div>Profile button</div>
+      <button
+        onClick={handleLogout}
+        className="bg-gradient-to-r from-red-900 to-red-800 text-white px-3 py-1 rounded-full"
+      >
+        Log out
+      </button>
     </div>
   );
 }
