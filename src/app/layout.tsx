@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const interFont = Inter({
-
-    subsets: ["latin"],
+  subsets: ["latin"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interFont.className} antialiased`}
+        className={`${interFont.className} bg-background text-main_text  antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
